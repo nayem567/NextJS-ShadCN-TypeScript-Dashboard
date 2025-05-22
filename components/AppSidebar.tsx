@@ -1,9 +1,11 @@
 import React from "react";
 import {
   Calendar,
+  ChevronDown,
   ChevronUp,
   Home,
   Inbox,
+  Projector,
   Search,
   Settings,
   User,
@@ -25,8 +27,17 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/assets/logo.svg";
-import { DropdownMenu, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
 import { DropdownMenuContent } from "@radix-ui/react-dropdown-menu";
+import { Collapsible } from "./ui/collapsible";
+import {
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@radix-ui/react-collapsible";
 
 const items = [
   {
@@ -58,7 +69,7 @@ const items = [
 
 const AppSidebar = () => {
   return (
-    <Sidebar collapsible="icon" >
+    <Sidebar collapsible="icon">
       {/* Sidebar Header */}
       <SidebarHeader>
         <SidebarMenu>
@@ -73,10 +84,10 @@ const AppSidebar = () => {
         </SidebarMenu>
       </SidebarHeader>
 
-    <SidebarSeparator />
+      <SidebarSeparator />
 
       {/* Sidebar Content */}
-      <SidebarContent>
+      <SidebarContent className="py-4">
         {/* Sidebar Group */}
         <SidebarGroup>
           {/* Sidebar Group Label */}
@@ -98,6 +109,42 @@ const AppSidebar = () => {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+
+        {/* Collapsible */}
+        <Collapsible defaultOpen className="group/collapsible">
+          <SidebarGroup>
+            <SidebarGroupLabel asChild>
+              <CollapsibleTrigger>
+                Collapsable Group
+                <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
+              </CollapsibleTrigger>
+            </SidebarGroupLabel>
+
+            <CollapsibleContent>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link href="/#">
+                        <Projector />
+                        See All Projects
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link href="/#">
+                        <Projector />
+                        Add Project
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </CollapsibleContent>
+          </SidebarGroup>
+        </Collapsible>
       </SidebarContent>
 
       {/* Sidebar Footer */}
