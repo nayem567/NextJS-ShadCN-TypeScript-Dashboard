@@ -78,6 +78,11 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
   --custom-color: oklch(0.6 0.2 150);
+  --color-chrome: var(--chart-1);
+  --color-safari: var(--chart-2);
+  --color-firefox: var(--chart-3);
+  --color-edge: var(--chart-4);
+  --color-other: var(--chart-5);
 }
 
 .dark {
@@ -113,6 +118,11 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
   --custom-color: oklch(0.6 0.2 150);
+  --color-chrome: var(--chart-1);
+  --color-safari: var(--chart-2);
+  --color-firefox: var(--chart-3);
+  --color-edge: var(--chart-4);
+  --color-other: var(--chart-5);
 }
 
 @layer base {
